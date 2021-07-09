@@ -12,8 +12,7 @@ import numpy as np
 import pandas as pd
 import altair as alt
 import streamlit as st
-import matplotlib.pyplot as plt
-import seaborn as sns
+
 
 #set stremalit layout as wide by default
 st.set_page_config(
