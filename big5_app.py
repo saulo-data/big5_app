@@ -53,6 +53,7 @@ big5 = big5.rename(columns = {"Country": "League"})
 #=======================================================================
 #app title
 st.title("Top 5 European Leagues Data")
+st.write("All these data were collected from FBRef.com. There you can verify the authenticity of this report.")
 #=======================================================================
 
 #=======================================================================
@@ -169,7 +170,7 @@ barras = hist & barra2
 
 st.subheader("Expected Goals Difference by 90 min, League Rank and Points per Game")
 st.write("Note how these three metrics are corelated since 2017-18 Season on Top 5 Leagues")
-st.write("This plot is interacrive")
+st.write("This plot is interactive")
 st.altair_chart(barras, use_container_width=True)
 #=======================================================================
 
