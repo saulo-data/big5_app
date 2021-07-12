@@ -169,7 +169,7 @@ barra2 = alt.Chart(big5).mark_bar(
 barras = hist & barra2
 
 st.subheader("Expected Goals Difference by 90 min, League Rank and Points per Game")
-st.write("Note how these three metrics are corelated since 2017-18 Season on Top 5 Leagues")
+st.write("Note how these three metrics are correlated since 2017-18 Season on Top 5 Leagues")
 st.write("This plot is interactive")
 st.altair_chart(barras, use_container_width=True)
 #=======================================================================
