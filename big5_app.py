@@ -106,6 +106,7 @@ scatter_xg = alt.Chart(big5[(big5.League == my_league) & (big5.Season != "Curren
 
 st.altair_chart(barxG, use_container_width=True)
 st.write("In this plot you can notice how a squad has been performing since the 2017-2018 Season")
+st.write("Missing values mean that squad didn't play the 1st division at a particular season.")
 st.write(my_league)
 st.altair_chart(scatter_xg, use_container_width=True)
 #=======================================================================
