@@ -7,41 +7,41 @@ Created on Fri Jul  2 10:49:11 2021
 """
 
 
-#importação das bibliotecas
+#libraries importing
 import numpy as np
 import pandas as pd
 import altair as alt
 import streamlit as st
 
 
-#configuração do layout deste app como "wide"
+#setting the layout as "wide" by default
 st.set_page_config(
     layout = "wide"
     )
 
-#url dos dados
+#data url
 url = "https://fbref.com/en/comps/Big5/{}/{}-Big-5-European-Leagues-Stats"
 url_current = "https://fbref.com/en/comps/Big5/Big-5-European-Leagues-Stats"
 
 
-#temporadas a serem analisadas
+#seasons to be analysed
 seasons = ["2017-2018", "2018-2019", "2019-2020"]
 
-#preparação dos dados
+#data preparation
 dfs = []
 
-#temporadas passadas
+#last seasons
 for season in seasons:
     league = pd.read_html(url.format(season, season))[0]
     league["Season"] = season
     dfs.append(league)
    
-#temporada atual
+#current season
 current = pd.read_html(url_current)[0]
 current["Season"] = "Current"
 dfs.append(current)
 
-#concatenação dos datasets
+#data concat
 big5 = pd.concat(dfs, ignore_index=True)
 vals_to_replace = {"de GER": "Bundesliga", "eng ENG": "Premier League", "it ITA": "Serie A",
                      "fr FRA": "Ligue 1", "es ESP": "La Liga"}
@@ -52,7 +52,7 @@ big5 = big5.rename(columns={"Country": "League"})
 
 
 #=======================================================================
-#título do app
+#app title
 st.title("Top 5 European Leagues Data")
 st.subheader("All these data were collected from [FBRef.com](https://fbref.com/en/comps/Big5/Big-5-European-Leagues-Stats).")
 st.write("""
@@ -62,7 +62,7 @@ st.write("""
 #=======================================================================
 
 #=======================================================================
-#criação de uma checkbox
+#checkbox
 
 if st.checkbox("Show Dataframe"):
     st.dataframe(big5)
@@ -76,7 +76,7 @@ st.header("xG of the current season")
 my_league = st.selectbox("Select a League", leagues)
 
 
-#xG gráficos
+#xG graphs
 
 barxG = alt.Chart(big5[(big5.League == my_league) & (big5["Season"] == "Current")]).mark_bar(
     cornerRadiusTopLeft=3,
@@ -145,7 +145,7 @@ st.altair_chart(faced, use_container_width=True)
 #=======================================================================
 
 #=======================================================================
-#gráficos de barras
+#bar plot
 interval = alt.selection_interval(encodings=['x'])
 
 hist = alt.Chart(big5).mark_bar(
@@ -182,7 +182,7 @@ st.write("This plot is interactive")
 st.altair_chart(barras, use_container_width=True)
 
 #=======================================================================
-#equipe
+#squad
 st.header("Which is the best formation for a particular squad?")
 st.write("Go to [FBRef.com](https://fbref.com/en/comps/Big5/Big-5-European-Leagues-Stats) -> Select a Squad -> Select a season from 2017-18 on -> Match Logs(National League) -> Copy the link")
 
@@ -208,7 +208,7 @@ time = alt.Chart(squad).mark_point().encode(
 
 st.altair_chart(time, use_container_width=True)
 #=======================================================================
-#partida
+#match
 st.header("Look inside a match")
 st.write("Go to [FBRef.com](https://fbref.com/en/comps/Big5/Big-5-European-Leagues-Stats) -> Select a Squad-> Select a season from 2017-18 on -> Match Logs(National League) -> Match Report -> Copy the link")
 partida = st.text_input(label="Paste your link here", 
