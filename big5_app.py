@@ -56,7 +56,7 @@ big5 = big5.rename(columns={"Country": "League"})
 st.title("Top 5 European Leagues Data")
 st.subheader("All these data were collected from [FBRef.com](https://fbref.com/en/comps/Big5/Big-5-European-Leagues-Stats).")
 st.write("""
-         This app allow us to go deep inside the
+         This app allows us to go deep inside the
          [Expected Goals metric(xG)](https://www.goal.com/en/news/what-is-xg-football-how-statistic-calculated/h42z0iiv8mdg1ub10iisg1dju) and performance.
         """)
 #=======================================================================
