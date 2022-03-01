@@ -123,7 +123,7 @@ st.altair_chart(scatter_xg, use_container_width=True)
 #Scatter Grid
 interval = alt.selection_interval(encodings=['x'])
 
-faced = alt.Chart(big5.Season != "Current").mark_circle().encode(
+faced = alt.Chart(big5[big5.Season != "Current"]).mark_circle().encode(
     alt.X(alt.repeat("column"), type="quantitative"),
     alt.Y(alt.repeat("row"), type="quantitative"),
     color = alt.condition(interval, "GF", alt.value("black"),
