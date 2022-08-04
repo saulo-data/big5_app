@@ -25,7 +25,7 @@ url_current = "https://fbref.com/en/comps/Big5/Big-5-European-Leagues-Stats"
 
 
 #seasons to be analysed
-seasons = ["2017-2018", "2018-2019", "2019-2020", "2020-2021"]
+seasons = ["2017-2018", "2018-2019", "2019-2020", "2020-2021", "2021-2022"]
 
 #data preparation
 dfs = []
