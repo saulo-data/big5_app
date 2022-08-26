@@ -136,7 +136,7 @@ faced = alt.Chart(big5[big5.Season != "Current"]).mark_circle().encode(
         selection = interval
         ).repeat(
         row = ["xG", "xGA", "xGD/90"],
-        column = ["W", "D", "Pts/G"]
+        column = ["W", "D", "Pts/MP"]
             )
 st.header("Relationship between some numeric data of the dataset")
 st.write("This plot is interactive")
@@ -166,7 +166,7 @@ barra2 = alt.Chart(big5).mark_bar(
     cornerRadiusTopLeft=3,
     cornerRadiusTopRight=3
     ).encode(
-    x = "mean(Pts/G)",
+    x = "mean(Pts/MP)",
     y = "League:N"
     ).properties(
         width = 1000,
@@ -177,7 +177,7 @@ barra2 = alt.Chart(big5).mark_bar(
 
 barras = hist & barra2
 
-st.header("Correlation between xGD/90, LgRk and Pts/G")
+st.header("Correlation between xGD/90, LgRk and Pts/MP")
 st.write("This plot is interactive")        
 st.altair_chart(barras, use_container_width=True)
 
